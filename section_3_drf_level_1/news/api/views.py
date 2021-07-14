@@ -63,7 +63,7 @@ class ArticleCreateListAPIView(APIView):
     
 class ArticleDetailAPIView(APIView):
     def get_object(self, pk):
-        article = get_object_or_404(Article, pk)
+        article = get_object_or_404(Article, pk=pk)
         return article
     
     def get(self, request, pk):
