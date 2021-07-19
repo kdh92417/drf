@@ -1,6 +1,7 @@
 from rest_framework import (
     generics,
-    mixins
+    mixins,
+    permissions
 )
 
 
@@ -14,15 +15,19 @@ from ebooks.api.serializers import (
     ReviewSerializer
 )
 
+from ebooks.api.permissions import IsAdminUserOrReadOnly
+
 
 class EbookListCreateAPIView(generics.ListCreateAPIView):
     queryset = Ebook.objects.all()
     serializer_class = EbookSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
 
 
 class EbookDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ebook.objects.all()
     serializer_class = EbookSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
 
 
 class ReviewCreateAPIView(generics.CreateAPIView):
