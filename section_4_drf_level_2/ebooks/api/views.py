@@ -20,11 +20,14 @@ from ebooks.api.permissions import (
     IsReviewAuthorOrReadOnly
 )
 
+from ebooks.api.pagination import SmallSetPagination
+
 
 class EbookListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Ebook.objects.all()
+    queryset = Ebook.objects.all().order_by('id')
     serializer_class = EbookSerializer
     permission_classes = [IsAdminUserOrReadOnly]
+    pagination_class = SmallSetPagination
 
 
 class EbookDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
