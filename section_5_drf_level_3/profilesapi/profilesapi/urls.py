@@ -22,9 +22,14 @@ from rest_auth.views import LoginView
 
 
 urlpatterns = [
+    # Standard
     path('admin/', admin.site.urls),
     path('api-auth/', include("rest_framework.urls")),
     path('api/rest-auth/', include("rest_auth.urls")),
+    path('api/rest-auth/registration/', include("rest_auth.registration.urls")),
+
+    # API
+    path('api/', include('profiles.api.urls')),
 ]
 
 
