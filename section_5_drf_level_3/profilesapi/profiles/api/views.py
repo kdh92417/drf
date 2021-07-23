@@ -1,26 +1,14 @@
 from django.db.models import query
 from django.db.models.query import QuerySet
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated
+from profiles.api.permissions import IsOwnerOrReadOnly, IsOwnProfileOrReadOnly
+from profiles.api.serializers import (ProfileAvatarSerializer,
+                                      ProfileSerializer,
+                                      ProfileStatusSerializer)
+from profiles.models import Profile, ProfileStatus
+from rest_framework import generics, mixins, viewsets
 from rest_framework.filters import SearchFilter
-
-from rest_framework.viewsets    import ModelViewSet
-from rest_framework import viewsets
-from rest_framework import mixins
-
-from profiles.models import (
-    Profile, 
-    ProfileStatus
-)
-from profiles.api.permissions import (
-    IsOwnProfileOrReadOnly, 
-    IsOwnerOrReadOnly
-)
-from profiles.api.serializers import (
-    ProfileSerializer, 
-    ProfileStatusSerializer,
-    ProfileAvatarSerializer
-)
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.viewsets import ModelViewSet
 
 
 class AvatarUpdateView(generics.UpdateAPIView):
