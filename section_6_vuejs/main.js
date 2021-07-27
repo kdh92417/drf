@@ -1,15 +1,32 @@
 var app = new Vue({
     el : "#app",
     data : {
-        flag = true,
-        styleObject : {
-            backgroundColor : 'blue', 
-            border : '5px solid orange'
-        }
-    },
-    methods : {
-        changeShape() {
-            this.flag = !this.flag;
-        }
+        users : [{
+            id : 121,
+            name : "adam",
+            profession : "dev"
+        },
+        {
+            id : 122,
+            name : "eve",
+            profession : "dev"
+        },
+        {
+            id : 123,
+            name : "noa",
+            profession : "dev"
+        },
+        {
+            id : 124,
+            name : "eden",
+            profession : "dev"
+        },
+        {
+            id : 125,
+            name : "eden",
+            profession : "dev"
+        },
+    
+    ]
     }
 })
