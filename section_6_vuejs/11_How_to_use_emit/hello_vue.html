@@ -12,10 +12,10 @@
 </head>
 <body>
     <div id="app">
-        <comment v-for="(comment, index) in comments"
-                 :comment="comment"
-                 :key="index + 2"  
-        ></comment>
+        <comment-list 
+            :comments="comments"
+            @submit-comment="addNewComment">
+        </comment-list>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

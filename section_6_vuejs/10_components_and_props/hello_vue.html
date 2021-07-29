@@ -12,19 +12,13 @@
 </head>
 <body>
     <div id="app">
-        <h1>User List</h1>
-        <div class="card" 
-             v-for="user in users"
-             :key="user.id">
-            <div class="card-body">
-                <p><strong>Name : </strong>{{ user.name }}</p>
-                <p><strong>Profession : </strong>{{ user.profession }}</p>
-            </div>
-        </div>
+        <comment v-for="(comment, index) in comments"
+                 :comment="comment"
+                 :key="index + 2"  
+        ></comment>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
-
