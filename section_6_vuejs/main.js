@@ -1,9 +1,9 @@
-const App = {
+const app = Vue.createApp({
     data() {
-        return {
-            counter : 3
-        }
+      return {
+        input: '# hello'
+      }
     }
-}
-
-Vue.createApp(App).mount('#app')
+})
+  
+app.mount('#editor')
