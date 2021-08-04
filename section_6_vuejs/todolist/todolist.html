@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
     <style>
-        
+        .no-outline {
+            outline : 0 !important;
+        }
+        .no-outline:not(:disabled):not(.disabled):focus {
+            color: #6c757d;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -15,6 +21,8 @@
         <to-do
             :tasks="tasks"
             :remaining="taskCount"
+            @add-task="addNewTask"
+            @remove-task="removeTask"
         ></to-do>
     </div>
 
@@ -22,3 +30,4 @@
     <script src="main.js"></script>
 </body>
 </html>
+
